@@ -25,12 +25,12 @@ function findById(user_id) {
 /**
   re solves to the newly inserted user { user_id, username }
  */
-function add(user) {
+
     async function add(user) {
       const [id] = await db('users').insert(user)
       return findById(id)
     }
-}
+
 
 // Don't forget to add these to the `exports` object so they can be required in other modules
 module.exports = {

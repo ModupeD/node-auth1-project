@@ -19,8 +19,9 @@ const knex = require("../data/db-config");
   or you can use a session store like `connect-session-knex`.
  */
 
-const server = express(
-  session({
+const server = express();
+
+  server.use(session({
     name: "chocolatechip",
     secret: "shh",
     saveUninitialized: false,
@@ -38,8 +39,7 @@ const server = express(
       httponly: true,
       //sameSite: 'none'
     },
-  })
-);
+  }));
 
 //server.use();
 server.use(helmet());
